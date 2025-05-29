@@ -1,136 +1,236 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <title>Udalosti v Prahe</title>
+  <title>AkcePraha.cz</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px;
-      background: #f7f7f7;
+      margin: 0;
+      background: #f5f5f5;
     }
-    h1, h2 {
-      text-align: center;
+
+    header {
+      background-color: #222;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .grid {
+
+    header a {
+      color: white;
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+
+    h2 {
+      margin: 2rem;
+      color: #333;
+    }
+
+    .section {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      justify-content: space-between;
+      justify-content: center;
+      margin: 0 1rem 3rem;
+      gap: 1.5rem;
     }
+
     .card {
-      background: white;
+      background-color: white;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: calc(33.333% - 20px);
-      box-sizing: border-box;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       overflow: hidden;
+      width: 300px;
       display: flex;
       flex-direction: column;
     }
+
     .card img {
       width: 100%;
-      height: 200px;
+      height: 180px;
       object-fit: cover;
     }
+
     .card-content {
-      padding: 15px;
+      padding: 1rem;
       flex-grow: 1;
     }
+
     .card-content h3 {
-      margin-top: 0;
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
     }
+
     .card-content p {
-      margin: 5px 0;
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
     }
-    .card-content a {
-      color: #007BFF;
+
+    .card-content .button {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #007BFF;
+      color: white;
       text-decoration: none;
+      border-radius: 4px;
     }
-    .card-content a:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 900px) {
-      .card { width: calc(50% - 20px); }
-    }
-    @media (max-width: 600px) {
-      .card { width: 100%; }
+
+    @media (max-width: 1000px) {
+      .section {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Udalosti v Prahe</h1>
-  <p style="text-align:center;">kultúra, zážitky, komunita</p>
+  <header>
+    <div><strong>AkcePraha.cz</strong></div>
+    <nav>
+      <a href="#zdarma">Zdarma</a>
+      <a href="#platene">Platené</a>
+    </nav>
+  </header>
 
-  <div class="grid">
+  <h2 id="zdarma">Zdarma</h2>
+  <div class="section">
     <div class="card">
-      <img src="https://goout.net/cdn-cgi/image/format=auto,width=383/i/127/1278839-383.jpg" alt="Veľký koncert malých kapiel">
+      <img src="https://goout.net/cdn-cgi/image/format=auto,width=383/i/127/1278839-383.jpg" alt="">
       <div class="card-content">
         <h3>Veľký koncert malých kapiel</h3>
         <p><strong>Dátum:</strong> 31.5.2025 (od 16:30)</p>
-        <p><strong>Adresa:</strong> Nad Ohradou 2667/17, 130 00 Praha</p>
+        <p><strong>Adresa:</strong> Nad Ohradou 2667/17, Praha</p>
         <p><strong>Cena:</strong> Zdarma</p>
-        <p><a href="https://allevents.in/prague/velký-koncert-malých-kapel/200028220069940" target="_blank">Viac informácií</a></p>
+        <a href="https://allevents.in/prague/velký-koncert-malých-kapel/200028220069940" class="button">Viac informací</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://www.praha12.cz/assets/Image.ashx?id_org=80112&id_obrazky=147745" alt="Den dětí Prahy 12">
+      <img src="https://www.praha12.cz/assets/Image.ashx?id_org=80112&id_obrazky=147745" alt="">
       <div class="card-content">
         <h3>Den dětí Prahy 12</h3>
         <p><strong>Dátum:</strong> 1.6.2025 (od 13:00)</p>
         <p><strong>Adresa:</strong> Areál Rosmarina, Praha 4 – Modřany</p>
         <p><strong>Cena:</strong> Zdarma</p>
-        <p><a href="https://www.kudyznudy.cz/akce/den-deti-prahy-12" target="_blank">Viac informácií</a></p>
+        <a href="https://www.kudyznudy.cz/akce/den-deti-prahy-12" class="button">Viac informací</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://www.vstupzdarma.cz/wp-content/uploads/2025/05/www.vstupzdarma.cz_jiri-bastyr-into-the-muddy-waters.jpeg" alt="Jiří Baštýř">
+      <img src="https://www.vstupzdarma.cz/wp-content/uploads/2025/05/www.vstupzdarma.cz_jiri-bastyr-into-the-muddy-waters.jpeg" alt="">
       <div class="card-content">
-        <h3>Jiří Baštýř - Thrown Into The Muddy Waters</h3>
+        <h3>Vernisáž: Jiří Baštýř</h3>
         <p><strong>Dátum:</strong> 7.5. – 8.6.2025</p>
-        <p><strong>Adresa:</strong> Hala 40, Bubenské nábřeží 306/13, 170 00 Prague</p>
+        <p><strong>Adresa:</strong> Hala 40, Bubenské nábřeží 306/13</p>
         <p><strong>Cena:</strong> Zdarma</p>
-        <p><a href="https://www.thechemistry.art/post/vernisáž-výstavy-jiří-baštýř-thrown-into-the-muddy-waters" target="_blank">Viac informácií</a></p>
+        <a href="https://www.thechemistry.art/post/vernisáž-výstavy-jiří-baštýř-thrown-into-the-muddy-waters" class="button">Viac informací</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://pragueclassicalconcerts.com/file/image/427/1009x619-EXACT/c845868ababaf68d8dc2f623f6897c3aa96587ebffdb2e6a7b4d5f6cbba270e2b2f0e6e7a05822e8e57c1d6568f8e3d8d52efc47f287d416146edfa596b27921/o948pcsijg-wow9.jpg" alt="WOW show">
+      <img src="https://www.capadlo.org/wp-content/uploads/2024/11/451684277_10225359756088383_5252655134445032234_n-1024x683.jpg" alt="">
       <div class="card-content">
-        <h3>WOW show black light theatre</h3>
-        <p><strong>Dátum:</strong> 15.5. - 15.6.2025</p>
-        <p><strong>Adresa:</strong> Na Příkopě 988/31, 110 00 Staré Město</p>
-        <p><strong>Cena:</strong> 650 Kč</p>
-        <p><a href="https://www.wow-show.com/cs/" target="_blank">Viac informácií</a></p>
+        <h3>Čapadlo Summer Terrace</h3>
+        <p><strong>Dátum:</strong> 1. - 31.5.2025</p>
+        <p><strong>Adresa:</strong> Smetanovo nábřeží 6, Praha</p>
+        <p><strong>Cena:</strong> Zdarma</p>
+        <a href="https://www.capadlo.org" class="button">Viac informací</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://cdn.kudyznudy.cz/files/bf/bfe39faa-0ad4-44fa-bfb5-5b37e5403da8.webp?v=20250109110059" alt="David Lynch">
+      <img src="https://foodevent.cz/wp-content/uploads/2025/02/beer-food.jpg" alt="">
+      <div class="card-content">
+        <h3>BEERFOOD Festival</h3>
+        <p><strong>Dátum:</strong> 31.5.2025</p>
+        <p><strong>Adresa:</strong> Újezd nad Lesy, Čentická</p>
+        <p><strong>Cena:</strong> Zdarma</p>
+        <a href="https://www.praha21.cz/aktuality/9087-beerfood-festival-ujezd-nad-lesy-2026" class="button">Viac informací</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn.kudyznudy.cz/files/d3/d3ea1885-cf83-409c-ba44-a3b12406624e.webp?v=20250527055236" alt="">
+      <div class="card-content">
+        <h3>Den dětí na Hvězdárně</h3>
+        <p><strong>Dátum:</strong> 31.5.2025</p>
+        <p><strong>Adresa:</strong> Pod Hvězdárnou 768, Ďáblice</p>
+        <p><strong>Cena:</strong> Zdarma</p>
+        <a href="https://www.kudyznudy.cz/akce/den-deti-na-hvezdarne-dablice" class="button">Viac informací</a>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="platene">Platené</h2>
+  <div class="section">
+    <div class="card">
+      <img src="https://pragueclassicalconcerts.com/file/image/427/1009x619-EXACT/c845868ababaf68d8dc2f623f6897c3aa96587ebffdb2e6a7b4d5f6cbba270e2b2f0e6e7a05822e8e57c1d6568f8e3d8d52efc47f287d416146edfa596b27921/o948pcsijg-wow9.jpg" alt="">
+      <div class="card-content">
+        <h3>WOW show</h3>
+        <p><strong>Dátum:</strong> 15.5. - 15.6.2025</p>
+        <p><strong>Adresa:</strong> Na Příkopě 988/31, Praha</p>
+        <p><strong>Cena:</strong> 650 Kč</p>
+        <a href="https://www.wow-show.com/cs/" class="button">Viac informací</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn.kudyznudy.cz/files/bf/bfe39faa-0ad4-44fa-bfb5-5b37e5403da8.webp?v=20250109110059" alt="">
       <div class="card-content">
         <h3>David Lynch: Up in Flames</h3>
         <p><strong>Dátum:</strong> 19.6.2025 – 8.2.2026</p>
         <p><strong>Adresa:</strong> Poupětova 1, Praha 7</p>
         <p><strong>Cena:</strong> 350 Kč</p>
-        <p><a href="https://www.dox.cz/en/whats-on/david-lynch-up-in-flames" target="_blank">Viac informácií</a></p>
+        <a href="https://www.dox.cz/en/whats-on/david-lynch-up-in-flames" class="button">Viac informací</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://www.datocms-assets.com/31357/1712918780-beetlejuice-muzikal-hdk-praha-1-colosseumticket-edited.png" alt="Beetlejuice">
+      <img src="https://www.datocms-assets.com/31357/1712918780-beetlejuice-muzikal-hdk-praha-1-colosseumticket-edited.png" alt="">
       <div class="card-content">
-        <h3>Beetlejuice v Hudebním divadle Karlín</h3>
+        <h3>Beetlejuice v Karlíně</h3>
         <p><strong>Dátum:</strong> 29.5. - 26.10.2025</p>
-        <p><strong>Adresa:</strong> Křižíkova 10/283, 186 00 Karlín</p>
+        <p><strong>Adresa:</strong> Křižíkova 10/283, Karlín</p>
         <p><strong>Cena:</strong> 390 - 1290 Kč</p>
-        <p><a href="https://www.prazskemuzikaly.cz/beetlejuice/" target="_blank">Viac informácií</a></p>
+        <a href="https://www.prazskemuzikaly.cz/beetlejuice/" class="button">Viac informací</a>
       </div>
     </div>
 
+    <div class="card">
+      <img src="https://cdn.kudyznudy.cz/files/be/be4ea648-b31d-4791-83a8-0effd08461f7.webp?v=20250526185623" alt="">
+      <div class="card-content">
+        <h3>Dny vína Žluté lázně</h3>
+        <p><strong>Dátum:</strong> 30. - 31.5.2025</p>
+        <p><strong>Adresa:</strong> Podolské nábřeží 1184/3</p>
+        <p><strong>Cena:</strong> 100 Kč</p>
+        <a href="https://www.zlutelazne.cz/program/dny-vina" class="button">Viac informací</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn.kudyznudy.cz/files/9b/9b6534dc-3d28-4dbc-8494-360a3c8eaaf2.jpg?v=20250228022802" alt="">
+      <div class="card-content">
+        <h3>Noční prohlídka Mořský svět</h3>
+        <p><strong>Dátum:</strong> 30.5.2025 (19:00 - 21:00)</p>
+        <p><strong>Adresa:</strong> Výstaviště, Holešovice</p>
+        <p><strong>Cena:</strong> 320 Kč</p>
+        <a href="https://morskysvet.grafartwebpro.cz" class="button">Viac informací</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn.kudyznudy.cz/files/97/973938e9-b03f-48e7-aaa0-580e019c1d84.webp?v=20241011141416" alt="">
+      <div class="card-content">
+        <h3>Kinopřenosy z Metropolitní opery</h3>
+        <p><strong>Dátum:</strong> 31.5.2025</p>
+        <p><strong>Adresa:</strong> Vodičkova 791, Nové Město</p>
+        <p><strong>Cena:</strong> 350 Kč</p>
+        <a href="https://www.kudyznudy.cz/akce/10-sezona-primych-prenosu-z-metropolitni-opery-v" class="button">Viac informací</a>
+      </div>
+    </div>
   </div>
 </body>
 </html>
