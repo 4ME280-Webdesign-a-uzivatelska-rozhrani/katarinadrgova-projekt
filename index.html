@@ -1,3 +1,7 @@
+from bs4 import BeautifulSoup
+
+# Základné CSS a HTML template s layoutom 3 udalostí vedľa seba
+html_head = """
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -6,141 +10,143 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: auto;
       max-width: 1200px;
+      margin: 0 auto;
       padding: 30px;
-      background-color: #f9f9f9;
+      background: #f7f7f7;
     }
-
     h1, h2 {
       text-align: center;
     }
-
-    .section-title {
-      font-size: 1.8em;
-      margin: 60px 0 20px 0;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 10px;
-    }
-
-    .event-grid {
+    .grid {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: space-between;
     }
-
-    .event {
-      background-color: #fff;
+    .card {
+      background: white;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       width: calc(33.333% - 20px);
-      padding: 15px;
       box-sizing: border-box;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
     }
-
-    .event img {
+    .card img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
-      border-radius: 5px;
-      margin-bottom: 10px;
     }
-
-    .event p {
+    .card-content {
+      padding: 15px;
+      flex-grow: 1;
+    }
+    .card-content h3 {
+      margin-top: 0;
+    }
+    .card-content p {
       margin: 5px 0;
     }
-
-    .event a {
+    .card-content a {
       color: #007BFF;
       text-decoration: none;
     }
-
-    .event a:hover {
+    .card-content a:hover {
       text-decoration: underline;
     }
-
-    .label {
-      font-weight: bold;
+    @media (max-width: 900px) {
+      .card { width: calc(50% - 20px); }
     }
-
-    @media (max-width: 1000px) {
-      .event {
-        width: calc(50% - 20px);
-      }
-    }
-
     @media (max-width: 600px) {
-      .event {
-        width: 100%;
-      }
+      .card { width: 100%; }
     }
   </style>
 </head>
 <body>
+  <h1>Udalosti v Prahe</h1>
+  <p style="text-align:center;">kultúra, zážitky, komunita</p>
+"""
 
-<h1>Udalosti v Prahe</h1>
-<p style="text-align:center;">kultúra, zážitky, komunita</p>
-
-<h2 class="section-title">Zdarma akcie</h2>
-<div class="event-grid">
-  <!-- Každá udalosť ↓ (tu vlož jednotlivé eventy podľa vzoru) -->
-  <!-- príklad: -->
-  <div class="event">
-    <img src="https://goout.net/cdn-cgi/image/format=auto,width=383/i/127/1278839-383.jpg" alt="Veľký koncert malých kapiel">
-    <p><span class="label">Dátum:</span> 31.5.2025 (od 16:30)</p>
-    <p><span class="label">Adresa:</span> Nad Ohradou 2667/17, 130 00 Praha</p>
-    <p><a href="https://allevents.in/prague/velký-koncert-malých-kapel/200028220069940">Viac info</a></p>
-  </div>
-
-  <div class="event">
-    <img src="https://www.praha12.cz/assets/Image.ashx?id_org=80112&id_obrazky=147745" alt="Den dětí Prahy 12">
-    <p><span class="label">Dátum:</span> 1.6.2025 (od 13:00)</p>
-    <p><span class="label">Adresa:</span> Areál Rosmarina, Praha 4 – Modřany</p>
-    <p><a href="https://www.kudyznudy.cz/akce/den-deti-prahy-12">Viac info</a></p>
-  </div>
-
-  <div class="event">
-    <img src="https://www.vstupzdarma.cz/wp-content/uploads/2025/05/www.vstupzdarma.cz_jiri-bastyr-into-the-muddy-waters.jpeg" alt="Jiří Baštýř výstava">
-    <p><span class="label">Dátum:</span> 7.5. – 8.6.2025</p>
-    <p><span class="label">Adresa:</span> Hala 40, Bubenské nábřeží 306/13, Praha</p>
-    <p><a href="https://www.thechemistry.art/post/vernisáž-výstavy-jiří-baštýř-thrown-into-the-muddy-waters">Viac info</a></p>
-  </div>
-
-  <!-- Pokračuj vložením ďalších udalostí rovnakým spôsobom -->
-
-</div>
-
-<h2 class="section-title">Platené akcie</h2>
-<div class="event-grid">
-  <div class="event">
-    <img src="https://pragueclassicalconcerts.com/file/image/427/1009x619-EXACT/c845868ababaf68d8dc2f623f6897c3aa96587ebffdb2e6a7b4d5f6cbba270e2b2f0e6e7a05822e8e57c1d6568f8e3d8d52efc47f287d416146edfa596b27921/o948pcsijg-wow9.jpg" alt="WOW show">
-    <p><span class="label">Dátum:</span> 15.5. - 15.6.2025</p>
-    <p><span class="label">Adresa:</span> Na Příkopě 988/31, Praha</p>
-    <p><a href="https://www.wow-show.com/cs/">Viac info</a></p>
-    <p><span class="label">Cena:</span> 650 Kč</p>
-  </div>
-
-  <div class="event">
-    <img src="https://cdn.kudyznudy.cz/files/bf/bfe39faa-0ad4-44fa-bfb5-5b37e5403da8.webp?v=20250109110059" alt="David Lynch výstava">
-    <p><span class="label">Dátum:</span> 19.6.2025 – 8.2.2026</p>
-    <p><span class="label">Adresa:</span> Poupětova 1, Praha 7</p>
-    <p><a href="https://www.dox.cz/en/whats-on/david-lynch-up-in-flames">Viac info</a></p>
-    <p><span class="label">Cena:</span> 350 Kč</p>
-  </div>
-
-  <div class="event">
-    <img src="https://www.datocms-assets.com/31357/1712918780-beetlejuice-muzikal-hdk-praha-1-colosseumticket-edited.png" alt="Beetlejuice">
-    <p><span class="label">Dátum:</span> 29.5. - 26.10.2025</p>
-    <p><span class="label">Adresa:</span> Křižíkova 10/283, Karlín</p>
-    <p><a href="https://www.prazskemuzikaly.cz/beetlejuice/">Viac info</a></p>
-    <p><span class="label">Cena:</span> 390 - 1290 Kč</p>
-  </div>
-
-  <!-- Ďalšie platené udalosti vlož rovnakým spôsobom -->
-</div>
-
+html_tail = """
 </body>
 </html>
+"""
+
+# Markdown manuálne rozdelený do štruktúrovaného zoznamu
+events = [
+    {
+        "title": "Veľký koncert malých kapiel",
+        "date": "31.5.2025 (od 16:30)",
+        "address": "Nad Ohradou 2667/17, 130 00 Praha",
+        "link": "https://allevents.in/prague/velký-koncert-malých-kapel/200028220069940",
+        "image": "https://goout.net/cdn-cgi/image/format=auto,width=383/i/127/1278839-383.jpg",
+        "price": "Zdarma"
+    },
+    {
+        "title": "Den dětí Prahy 12",
+        "date": "1.6.2025 (od 13:00)",
+        "address": "Areál Rosmarina, ulice Vltavanů, Praha 4 – Modřany",
+        "link": "https://www.kudyznudy.cz/akce/den-deti-prahy-12",
+        "image": "https://www.praha12.cz/assets/Image.ashx?id_org=80112&id_obrazky=147745",
+        "price": "Zdarma"
+    },
+    {
+        "title": "Jiří Baštýř - Thrown Into The Muddy Waters",
+        "date": "7.5. – 8.6.2025",
+        "address": "Hala 40, Bubenské nábřeží 306/13, 170 00 Prague",
+        "link": "https://www.thechemistry.art/post/vernisáž-výstavy-jiří-baštýř-thrown-into-the-muddy-waters",
+        "image": "https://www.vstupzdarma.cz/wp-content/uploads/2025/05/www.vstupzdarma.cz_jiri-bastyr-into-the-muddy-waters.jpeg",
+        "price": "Zdarma"
+    },
+    {
+        "title": "WOW show black light theatre",
+        "date": "15.5. - 15.6.2025",
+        "address": "Na Příkopě 988/31, 110 00 Staré Město",
+        "link": "https://www.wow-show.com/cs/",
+        "image": "https://pragueclassicalconcerts.com/file/image/427/1009x619-EXACT/c845868ababaf68d8dc2f623f6897c3aa96587ebffdb2e6a7b4d5f6cbba270e2b2f0e6e7a05822e8e57c1d6568f8e3d8d52efc47f287d416146edfa596b27921/o948pcsijg-wow9.jpg",
+        "price": "650 Kč"
+    },
+    {
+        "title": "David Lynch: Up in Flames",
+        "date": "19.6.2025 – 8.2.2026",
+        "address": "Poupětova 1, Praha 7",
+        "link": "https://www.dox.cz/en/whats-on/david-lynch-up-in-flames",
+        "image": "https://cdn.kudyznudy.cz/files/bf/bfe39faa-0ad4-44fa-bfb5-5b37e5403da8.webp?v=20250109110059",
+        "price": "350 Kč"
+    },
+    {
+        "title": "Beetlejuice v Hudebním divadle Karlín",
+        "date": "29.5. - 26.10.2025",
+        "address": "Křižíkova 10/283, 186 00 Karlín",
+        "link": "https://www.prazskemuzikaly.cz/beetlejuice/",
+        "image": "https://www.datocms-assets.com/31357/1712918780-beetlejuice-muzikal-hdk-praha-1-colosseumticket-edited.png",
+        "price": "390 - 1290 Kč"
+    }
+]
+
+# Generovanie HTML pre každú udalosť
+grid_html = '<div class="grid">\n'
+for event in events:
+    grid_html += f"""
+    <div class="card">
+      <img src="{event['image']}" alt="{event['title']}">
+      <div class="card-content">
+        <h3>{event['title']}</h3>
+        <p><strong>Dátum:</strong> {event['date']}</p>
+        <p><strong>Adresa:</strong> {event['address']}</p>
+        <p><strong>Cena:</strong> {event['price']}</p>
+        <p><a href="{event['link']}" target="_blank">Viac informácií</a></p>
+      </div>
+    </div>
+    """
+grid_html += '</div>\n'
+
+# Výsledný HTML dokument
+final_html = html_head + grid_html + html_tail
+
+# Zobrazenie ako HTML
+from IPython.display import display, HTML
+display(HTML(final_html))
+
