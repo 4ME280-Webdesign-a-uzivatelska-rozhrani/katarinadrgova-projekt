@@ -30,6 +30,17 @@ Vernisáž výstavy: Jiří Baštýř - Thrown Into The Muddy Waters
 - Link: (https://www.capadlo.org)
 ![foto] (https://www.capadlo.org/wp-content/uploads/2024/11/451684277_10225359756088383_5252655134445032234_n-1024x683.jpg)
 
+BEERFOOD Festival Újezd nad Lesy 2025
+- Dátum: 31.5.2025
+- Adresa: Újezd nad Lesy, ul. Čentická
+- Link: (https://www.praha21.cz/aktuality/9087-beerfood-festival-ujezd-nad-lesy-2026)
+![foto] (https://foodevent.cz/wp-content/uploads/2025/02/beer-food.jpg)
+
+Den dětí na Hvězdárně Ďáblice
+- Dátum: 31.5.2025
+- Adresa: Pod Hvězdárnou 768, 182 00 Ďáblice
+- Link: (https://www.kudyznudy.cz/akce/den-deti-na-hvezdarne-dablice)
+![foto] (https://cdn.kudyznudy.cz/files/d3/d3ea1885-cf83-409c-ba44-a3b12406624e.webp?v=20250527055236)
 
 Platené akcie:
 
@@ -62,4 +73,15 @@ Dny vína ve Žlutých lázních 2025
 - Cena: 100 Kč
 
 Noční prohlídka v Mořském světě
+- Dátum: 30.5.2025 (19:00 - 21:00)
+- Adresa: Výstaviště Praha 7 Holešovice
+- Link: (https://morskysvet.grafartwebpro.cz)
+![foto] (https://cdn.kudyznudy.cz/files/9b/9b6534dc-3d28-4dbc-8494-360a3c8eaaf2.jpg?v=20250228022802)
+- Cena: 320 Kč
 
+Kinopřenosy z Metropolitní opery v New Yorku
+- Dátum: 31.5.2025
+- Adresa: Vodičkova 791, 110 00 Nové Město
+- Link: (https://www.kudyznudy.cz/akce/10-sezona-primych-prenosu-z-metropolitni-opery-v)
+![foto] (https://cdn.kudyznudy.cz/files/97/973938e9-b03f-48e7-aaa0-580e019c1d84.webp?v=20241011141416)
+- Cena: 350 Kč
